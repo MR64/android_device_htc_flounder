@@ -146,3 +146,21 @@ EXTENDED_FONT_FOOTPRINT := true
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
 MALLOC_IMPL := dlmalloc
+
+# TWRP
+TW_INCLUDE_L_CRYPTO := true
+DEVICE_RESOLUTION := 1200x1920
+RECOVERY_SDCARD_ON_DATA := true
+BOARD_HAS_NO_REAL_SDCARD := true
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
+TARGET_RECOVERY_DEVICE_DIRS += device/htc/flounder
+
+# MultiROM
+MR_INPUT_TYPE := type_b
+MR_INIT_DEVICES := device/htc/flounder/multirom/mr_init_devices.c
+MR_DPI := hdpi
+MR_DPI_FONT := 216
+MR_FSTAB := device/htc/flounder/recovery/root/etc/twrp.fstab
+MR_KEXEC_MEM_MIN := 0x85000000
+MR_KEXEC_DTB := true
