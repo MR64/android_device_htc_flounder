@@ -29,11 +29,28 @@ const char *mr_init_devices[] =
     // for adb
     "/sys/class/tty/ptmx",
     "/sys/class/misc/android_adb",
-    "/sys/class/android_usb/android0/f_ffs",
+    "/sys/class/android_usb",
+    "/sys/class/android_usb/android0",
+    "/sys/class/android_usb/android0*",
     "/sys/bus/usb",
+    "/sys/devices/platform/tegra-ehci.1",
+    "/sys/devices/platform/tegra-ehci.1*",
+    "/sys/devices/platform/tegra-udc.0",
+    "/sys/devices/platform/tegra-udc.0*",
+    "/sys/devices/platform/tegra-otg",
+    "/sys/devices/platform/tegra-otg*",
+    "/sys/module/tegra_udc",
+    "/sys/module/usbcore",
+    "/sys/devices/virtual/android_usb/android0/f_ffs",
+    "/sys/module/g_android",
 
     // USB drive is in here
     "/sys/devices/platform/tegra-ehci.0*",
+
+    // Watchdog
+    "/sys/devices/platform/60005100.watchdog",
+    "/sys/devices/virtual/misc/watchdog",
+    "/sys/devices/virtual/watchdog*",
 
     NULL
 };
