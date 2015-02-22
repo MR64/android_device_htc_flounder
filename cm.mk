@@ -38,3 +38,8 @@ DEVICE_PACKAGE_OVERLAYS += device/htc/flounder/overlay-cm
 PRODUCT_NAME := cm_flounder
 PRODUCT_BRAND := google
 PRODUCT_MODEL := Nexus 9
+# Allow adb. This must come after all inclusions
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+persist.sys.usb.config=mtp,adb \
+ro.adb.secure=0 \
+ro.secure=0
