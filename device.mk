@@ -138,6 +138,10 @@ PRODUCT_COPY_FILES += \
     device/htc/flounder/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
     device/htc/flounder/nfc/libnfc-brcm-20795a10.conf:system/etc/libnfc-brcm-20795a10.conf
 
+# Bluetooth config files
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
+
 PRODUCT_AAPT_CONFIG := normal large xlarge hdpi xhdpi xxhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
@@ -145,11 +149,8 @@ PRODUCT_CHARACTERISTICS := tablet,nosdcard
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
-PRODUCT_TAGS += dalvik.gc.type-precise
-
 # NFC packages
 PRODUCT_PACKAGES += \
-    com.android.nfc_extras \
     nfc_nci.bcm2079x.default \
     NfcNci \
     Tag \
@@ -222,12 +223,16 @@ PRODUCT_PACKAGES += \
 	VolantisKeyboard
 
 # for launcher layout
-PRODUCT_PACKAGES += \
-    VolantisLayout
+#PRODUCT_PACKAGES += \
+#    VolantisLayout
 
 # Allows healthd to boot directly from charger mode rather than initiating a reboot.
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.enable_boot_charger_mode=1
+
+# Enable USB OTG (CAF commit to Settings)
+ADDITIONAL_BUILD_PROPERTIES += \
+    persist.sys.isUsbOtgEnabled=true
 
 $(call inherit-product-if-exists, hardware/nvidia/tegra132/tegra132.mk)
 $(call inherit-product-if-exists, vendor/nvidia/proprietary-tegra132/tegra132-vendor.mk)
